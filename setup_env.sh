@@ -39,3 +39,6 @@ python content/models/research/object_detection/builders/model_builder_tf2_test.
 mv train_val_test_split.py TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
 mv setup_variables.py TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
 mv run_train.sh TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
+mv grab_data.sh TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
+
+cd TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi
