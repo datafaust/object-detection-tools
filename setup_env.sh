@@ -17,7 +17,7 @@ cp object_detection/packages/tf2/setup.py .
 cd /home/ubuntu/object-detection-tools/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
 
 # replace tensor flow with 2.8.0
-python replace_tensor.py
+python ./replace_tensor.py
 
 # Install the Object Detection API
 pip install content/models/research/
