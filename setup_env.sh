@@ -14,7 +14,7 @@ git clone --depth 1 https://github.com/tensorflow/models
 cd models/research/
 protoc object_detection/protos/*.proto --python_out=.
 cp object_detection/packages/tf2/setup.py .
-cd /home/ubuntu/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
+cd /home/ubuntu/object-detection-tools/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
 
 # Install the Object Detection API
 pip install content/models/research/
