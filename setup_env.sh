@@ -7,6 +7,10 @@ pip install wget
 
 # install object detection api ------------------------------
 git clone https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi.git
+
+# move tensor replace over
+mv replace_tensor.py TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
+
 cd TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi
 mkdir content
 cd content
