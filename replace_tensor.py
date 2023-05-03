@@ -2,7 +2,7 @@
 # Modify setup.py file to install the tf-models-official repository targeted at TF v2.8.0
 import re
 import os
-currcwd = os.getcwd()
+currcwd = os.getcwd() + '/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi'
 print(currcwd + '/content/models/research/object_detection/packages/tf2/setup.py')
 with open(currcwd + '/content/models/research/object_detection/packages/tf2/setup.py') as f:
     s = f.read()
