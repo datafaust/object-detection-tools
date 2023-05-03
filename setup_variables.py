@@ -1,7 +1,9 @@
 import os
 import re
 
-os.chdir('/home/ubuntu/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/')
+home_dir = '/home/ubuntu/object-detection-tools/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/'
+
+os.chdir(home_dir)
 
 train_record_fname = os.getcwd() + '/content/train.tfrecord'
 val_record_fname = os.getcwd() + '/content/val.tfrecord'
@@ -45,7 +47,7 @@ print("download model file ...")
 import tarfile
 import wget
 
-os.chdir('/home/ubuntu/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/models/mymodel/')
+os.chdir(home_dir)
 
 download_tar = 'http://download.tensorflow.org/models/object_detection/tf2/20200711/' + pretrained_checkpoint
 wget.download(download_tar)
@@ -72,7 +74,7 @@ else:
 
 ##############
 print("get num classes ....")
-os.chdir('/home/ubuntu/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/')
+os.chdir(home_dir)
 
 print(os.getcwd())
 # Set file locations and get number of classes for config file
@@ -95,7 +97,7 @@ print('Total classes:', num_classes)
 
 ##############
 
-os.chdir('/home/ubuntu/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/models/mymodel/')
+os.chdir(home_dir)
 print('writing custom configuration file')
 print(os.getcwd())
 pipeline_fname = os.getcwd() + "/" + "ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.config"
