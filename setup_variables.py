@@ -64,12 +64,12 @@ wget.download(download_config)
 #############
 
 # Set training parameters for the model
-num_steps = 40000
+num_steps = 5000
 
 if chosen_model == 'efficientdet-d0':
-  batch_size = 32
+  batch_size = 8
 else:
-  batch_size = 32
+  batch_size = 8
 
 
 ##############
