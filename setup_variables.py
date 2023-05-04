@@ -47,7 +47,7 @@ print("download model file ...")
 import tarfile
 import wget
 
-os.chdir(home_dir)
+os.chdir(home_dir + '/content/models/mymodel/')
 
 download_tar = 'http://download.tensorflow.org/models/object_detection/tf2/20200711/' + pretrained_checkpoint
 wget.download(download_tar)
@@ -67,9 +67,9 @@ wget.download(download_config)
 num_steps = 40000
 
 if chosen_model == 'efficientdet-d0':
-  batch_size = 16
+  batch_size = 1
 else:
-  batch_size = 16
+  batch_size = 1
 
 
 ##############
@@ -97,7 +97,7 @@ print('Total classes:', num_classes)
 
 ##############
 
-os.chdir(home_dir)
+os.chdir(home_dir + '/content/models/mymodel')
 print('writing custom configuration file')
 print(os.getcwd())
 pipeline_fname = os.getcwd() + "/" + "ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.config"
@@ -117,7 +117,7 @@ with open(pipeline_fname) as f:
 
 
 
-
+os.chdir(home_dir + '/content/models/mymodel')
 with open('pipeline_file.config', 'w') as f:
     
     # Set fine_tune_checkpoint path

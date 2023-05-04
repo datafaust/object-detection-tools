@@ -1,0 +1,47 @@
+#!/bin/bash  
+
+# copy s3 contents
+aws s3 cp s3://odapi-1/model_inputs/sample_model.zip .
+
+# unzip
+unzip -d . sample_model.zip
+
+# create directories
+mkdir TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/images
+mkdir TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/images/all
+mkdir TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/images/train
+mkdir TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/images/validation
+mkdir TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/images/test
+
+
+# copy data over to respective folders
+cp  -r sample_model/images TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/images/all
+cp  -r sample_model/labelmap.txt TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/content/
+
+# move to working directory and run data
+cd TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi
+python train_val_test_split.py
+
+# create tf records and csvs
+cd content/
+wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/master/util_scripts/create_csv.py
+wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/master/util_scripts/create_tfrecord.py
+python create_csv.py
+python create_tfrecord.py --csv_input=images/train_labels.csv --labelmap=labelmap.txt --image_dir=images/train --output_path=train.tfrecord
+python create_tfrecord.py --csv_input=images/validation_labels.csv --labelmap=labelmap.txt --image_dir=images/validation --output_path=val.tfrecord
+
+
+# run setup
+cd ..
+python setup_variables.py
+
+# launch tensor board
+
+
+# run train
+python content/models/research/object_detection/model_main_tf2.py \
+    --pipeline_config_path=content/models/mymodel/pipeline_file.config \
+    --model_dir=content/training/ \
+    --alsologtostderr \
+    --num_train_steps=1000 \
+    --sample_1_of_n_eval_examples=1
