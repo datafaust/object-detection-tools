@@ -3,6 +3,7 @@
 # update
 sudo apt-get update
 sudo apt-get upgrade -y
+sudo apt install zip
 pip install wget
 
 # install object detection api ------------------------------

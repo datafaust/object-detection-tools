@@ -67,9 +67,9 @@ wget.download(download_config)
 num_steps = 40000
 
 if chosen_model == 'efficientdet-d0':
-  batch_size = 1
+  batch_size = 32
 else:
-  batch_size = 1
+  batch_size = 32
 
 
 ##############
