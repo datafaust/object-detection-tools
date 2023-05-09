@@ -7,20 +7,20 @@ sudo apt install zip
 pip install wget
 
 # install object detection api ------------------------------
-git clone https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi.git
-mv TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi tflite-odapi
+git clone https://github.com/EdjeElectronics/tflite-odapi.git
+mv tflite-odapi tflite-odapi
 
 # move tensor replace over
-mv replace_tensor.py TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
+mv replace_tensor.py tflite-odapi/
 
-cd TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi
+cd tflite-odapi
 mkdir content
 cd content
 git clone --depth 1 https://github.com/tensorflow/models
 cd models/research/
 protoc object_detection/protos/*.proto --python_out=.
 cp object_detection/packages/tf2/setup.py .
-cd /home/ubuntu/object-detection-tools/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
+cd /home/ubuntu/object-detection-tools/tflite-odapi/
 
 # replace tensor flow with 2.8.0
 python replace_tensor.py
@@ -39,9 +39,9 @@ python content/models/research/object_detection/builders/model_builder_tf2_test.
 
 # move pertinent files over
 cd ..
-mv train_val_test_split.py TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
-mv setup_variables.py TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
-mv run_train.sh TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
-mv grab_data.sh TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/
+mv train_val_test_split.py tflite-odapi/
+mv setup_variables.py tflite-odapi/
+mv run_train.sh tflite-odapi/
+mv grab_data.sh tflite-odapi/
 
-cd TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi
+cd tflite-odapi

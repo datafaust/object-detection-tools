@@ -1,7 +1,7 @@
 #!/bin/bash  
 
 # copy s3 contents
-aws s3 cp s3://odapi-1/model_inputs/sample_model.zip .
+aws s3 cp s3://odapi-input/model.zip .
 
 # unzip
 unzip -d . sample_model.zip
@@ -86,4 +86,4 @@ cd content
 zip -r custom_model_lite.zip custom_model_lite
 
 
-aws s3 cp custom_model_lite.zip s3://odapi-1/model_outputs/
+aws s3 cp custom_model_lite.zip s3://odapi-output/
